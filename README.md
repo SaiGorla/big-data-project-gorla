@@ -49,7 +49,38 @@ cleanedwordRDD=tokenCleanerRDD.filter(lambda w: w not in stopwords)
 ```
 cleanedwordRDD=tokenCleanerRDD.filter(lambda w: w not in stopwords)
 ```
+### Data Processing :
+- For Data Processing, the first step is to Map words to key-value pairs.Here, we need to change the words into the form(word,1), then we count the occurancy of the word.Next step is by using the ReduceByKey, we need to remove the duplicate words occured in the text and add the first count words.The last step is to return to the python from the spark using Collect( ) function.
 
+```
+IKVPairsRDD= cleanedwordRDD.map(lambda word: (word,1))
+```
+```
+wordsCountRDD = IKVPairsRDD.reduceByKey(lambda acc, value: acc+value)
+```
+```
+results = wordsCountRDD.collect()
+```
+
+### Charting :
+- The final processing is to display the final output data and then  visualize our performance using MatPlotLib, and Seaborn.Viewing a list of words is fine but it is better to graph data. To create a graph we will use the library mathplotlib. Here is a helpful stack overflow on how to graph a list of tuple using one side of the x axis and the other side for y axis.
+
+```
+results.sort(key=lambda x:x[1])
+results.reverse()
+print(results[:12])
+```
+```
+mostCommon=results[1:14]
+word,count = zip(*mostCommon)
+import matplotlib.pyplot as plt
+fig = plt.figure()
+plt.stackplot(word,count, color='crimson')
+plt.xlabel("No of times used")
+plt.ylabel("Most repeated words")
+plt.title("Most used words in the File")
+plt.show()
+```
 
 
 ## References :
