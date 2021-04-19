@@ -14,6 +14,8 @@
 ## Text Resource :
 - https://www.gutenberg.org/files/1342/1342-0.txt
 
+## databricks Community Link :
+- https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/6536602250392291/3242260229241533/1149499017838718/latest.html
 ## Commands :
 
 ### Data Gathering :
