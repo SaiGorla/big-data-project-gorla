@@ -81,6 +81,7 @@ plt.ylabel("Most repeated words")
 plt.title("Most used words in the File")
 plt.show()
 ```
+![](https://github.com/SaiGorla/big-data-project-gorla/blob/main/Data%20Visualized.PNG)
 
 
 ## References :
